@@ -15,7 +15,7 @@ const Search = ({ searchProduct, filterProduct }) => {
     }
     function onSubmitFilter(e) {
         e.preventDefault();
-        if (priceFrom > priceTo) setValidete(true);
+        if (Number(priceFrom) > Number(priceTo)) setValidete(true);
         else {
             setValidete(false);
             filterProduct(priceFrom, priceTo);
@@ -31,27 +31,32 @@ const Search = ({ searchProduct, filterProduct }) => {
                     onChange={(e) => setText(e.target.value)}
                 />
             </form>
-            <form className="form-filter" onSubmit={(e) => onSubmitFilter(e)}>
-                <input
-                    onChange={(e) => setPriceFrom(e.target.value)}
-                    value={priceFrom}
-                    type="number"
-                    placeholder="Giá từ"
-                />
-                -
-                <input
-                    onChange={(e) => setPriceTo(e.target.value)}
-                    value={priceTo}
-                    type="number"
-                    placeholder="Đến"
-                />
-                <button type="submit">Lọc</button>
-                {validete ? (
-                    <p>Số cuối phải lớn hơn hoặc bằng số bắt đầu!</p>
-                ) : (
-                    <Fragment />
-                )}
-            </form>
+            <div className="form-filter">
+                <form onSubmit={(e) => onSubmitFilter(e)}>
+                    <div>
+                        <input
+                            onChange={(e) => setPriceFrom(e.target.value)}
+                            value={priceFrom}
+                            type="number"
+                            placeholder="Giá từ"
+                        />
+                        -
+                        <input
+                            onChange={(e) => setPriceTo(e.target.value)}
+                            value={priceTo}
+                            type="number"
+                            placeholder="Đến"
+                        />
+                        <button type="submit">Lọc</button>
+                    </div>
+
+                    {validete ? (
+                        <p>Số cuối phải lớn hơn hoặc bằng số bắt đầu!</p>
+                    ) : (
+                        <Fragment />
+                    )}
+                </form>
+            </div>
         </div>
     );
 };

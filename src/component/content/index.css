@@ -100,11 +100,20 @@ input[type="number"]::-webkit-inner-spin-button {
     border: #ff5e02;
     background-color: #ff5e02;
     color: #fff;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     padding: 3px 5px;
     width: 50px;
-    margin: 5px;
+    margin: 5px 0px 5px 10px;
     border-radius: 2px;
+}
+.form-filter p {
+    font-size: 14px;
+    color: red;
+    text-align: end;
+    margin-top: 0;
+}
+.form-filter form div {
+    display: flex;
 }
 @media screen and (max-width: 1220px) and (min-width: 900px) {
     .content {
@@ -124,7 +133,7 @@ input[type="number"]::-webkit-inner-spin-button {
     .form-filter {
         padding: 0;
     }
-    .form-filter {
+    .form-filter form div {
         flex-direction: column;
         align-items: flex-end;
     }
