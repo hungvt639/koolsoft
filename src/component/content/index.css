@@ -121,6 +121,17 @@ input[type="number"]::-webkit-inner-spin-button {
 .form-filter form div {
     display: flex;
 }
+.loader {
+    text-align: center;
+}
+.loader img {
+    width: 100%;
+    max-width: 300px;
+}
+.loader p {
+    font-size: 30px;
+    color: rgb(100, 100, 100);
+}
 @media screen and (max-width: 1220px) and (min-width: 900px) {
     .content {
         max-width: 900px;

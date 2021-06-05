@@ -3,6 +3,7 @@ import "./index.css";
 import Search from "./Search";
 import Item from "./Item";
 import Pagination from "./Pagination";
+import loadergif from "../../img/loader.gif";
 const axios = require("axios");
 
 const Content = () => {
@@ -10,6 +11,7 @@ const Content = () => {
     const [products, setProducts] = useState([]);
     const [page, setPage] = useState(1);
     const [total, setTotal] = useState(0);
+    const [loader, setLoader] = useState(true);
     // const [search, setSearch] = useState("");
     const [listFilter, setListFilter] = useState([]);
     const limit = 8;
@@ -23,6 +25,7 @@ const Content = () => {
                 setListProduct(res.data);
                 setListFilter(res.data);
                 setTotal(res.data.length);
+                setLoader(false);
             } catch (error) {
                 console.error(error);
             }
@@ -95,7 +98,7 @@ const Content = () => {
                 searchProduct={searchProduct}
                 filterProduct={filterProduct}
             />
-            <Products products={products} />
+            <Products products={products} loader={loader} />
             {products.length ? (
                 <Pagination
                     page={page}
@@ -111,17 +114,26 @@ const Content = () => {
     );
 };
 export default Content;
-const Products = ({ products }) => {
-    // console.log(products.length);
-    if (products.length) {
+const Products = ({ products, loader }) => {
+    if (loader) {
         return (
-            <div className="products">
-                {products.map((product) => {
-                    return <Item product={product} key={product.id} />;
-                })}
+            <div className="loader">
+                <img src={loadergif} />
+                <p>LOADING...!</p>
             </div>
         );
     } else {
-        return <div className="none-product">Không có sản phẩm nào!</div>;
+        if (products.length) {
+            return (
+                <div className="products">
+                    {products.map((product) => {
+                        return <Item product={product} key={product.id} />;
+                    })}
+                </div>
+            );
+        } else {
+            return <div className="none-product">Không có sản phẩm nào!</div>;
+        }
     }
+    // console.log(products.length);
 };
