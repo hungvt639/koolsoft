@@ -122,6 +122,6 @@ const Products = ({ products }) => {
             </div>
         );
     } else {
-        return <div>Không có sản phẩm nào!</div>;
+        return <div className="none-product">Không có sản phẩm nào!</div>;
     }
 };

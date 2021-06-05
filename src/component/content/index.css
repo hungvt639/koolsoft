@@ -1,3 +1,9 @@
+.none-product {
+    text-align: center;
+    font-size: 30px;
+    color: rgb(99, 99, 99);
+    margin-top: 50px;
+}
 .content {
     width: 100%;
     max-width: 1200px;
