@@ -1,0 +1,13 @@
+.header {
+    background-color: #ff9933;
+    /* height: 100px; */
+    display: block;
+}
+.header p {
+    text-align: center;
+    margin: 0;
+    padding: 50px;
+    color: seashell;
+    font-size: 64px;
+    font-weight: 800;
+}
