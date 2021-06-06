@@ -3,7 +3,7 @@ import "./index.css";
 import Search from "./Search";
 import Item from "./Item";
 import Pagination from "./Pagination";
-import loadergif from "../../img/loader.gif";
+import loading from "../../img/loading.gif";
 const axios = require("axios");
 
 const Content = () => {
@@ -118,8 +118,7 @@ const Products = ({ products, loader }) => {
     if (loader) {
         return (
             <div className="loader">
-                <img src={loadergif} />
-                <p>LOADING...!</p>
+                <img src={loading} />
             </div>
         );
     } else {
